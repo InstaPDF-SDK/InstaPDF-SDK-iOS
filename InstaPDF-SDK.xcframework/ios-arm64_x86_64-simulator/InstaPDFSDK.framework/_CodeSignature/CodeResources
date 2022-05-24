@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		t3oa//E6o0XDw7f8tzXue/XknsU=
+		cCyMQULyuunR890UDKiEJ8x6JGw=
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		t3oa//E6o0XDw7f8tzXue/XknsU=
+		cCyMQULyuunR890UDKiEJ8x6JGw=
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Nnc2zDcEnNpEDqOgxBMpQJa0vUs=
+		gKrG8genxEUohUp6179IQA/bVvA=
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/InstaPDFSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		Nnc2zDcEnNpEDqOgxBMpQJa0vUs=
+		gKrG8genxEUohUp6179IQA/bVvA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -115,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Tpd2OpyLY7qfHiYoEzXSWogR0wZxlayQx9Ke+l0AXT0=
+			1soaBhQuozwdVo/MQ4FO9FMAGnoXfq6cFZdGIfdvUE0=
 			</data>
 		</dict>
 		<key>Modules/InstaPDFSDK.swiftmodule/arm64.swiftdoc</key>
@@ -136,7 +136,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Tpd2OpyLY7qfHiYoEzXSWogR0wZxlayQx9Ke+l0AXT0=
+			1soaBhQuozwdVo/MQ4FO9FMAGnoXfq6cFZdGIfdvUE0=
 			</data>
 		</dict>
 		<key>Modules/InstaPDFSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -157,7 +157,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6DGx/MzY1b5xz8u4AHjIPAClbzosSFut4783G3MjtI8=
+			qhfGHwwrmMOU3QZxGg1jUa3P/NwZ7MWjEnlTpQY6qts=
 			</data>
 		</dict>
 		<key>Modules/InstaPDFSDK.swiftmodule/x86_64.swiftdoc</key>
@@ -178,7 +178,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6DGx/MzY1b5xz8u4AHjIPAClbzosSFut4783G3MjtI8=
+			qhfGHwwrmMOU3QZxGg1jUa3P/NwZ7MWjEnlTpQY6qts=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
