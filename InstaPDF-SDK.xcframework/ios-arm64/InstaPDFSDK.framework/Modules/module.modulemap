@@ -1,0 +1,4 @@
+framework module InstaPDFSDK {
+  header "InstaPDFSDK-Swift.h"
+  requires objc
+}

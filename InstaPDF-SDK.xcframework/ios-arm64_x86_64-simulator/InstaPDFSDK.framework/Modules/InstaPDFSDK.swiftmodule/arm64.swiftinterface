@@ -1,0 +1,328 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name InstaPDFSDK
+import AVFoundation
+import CommonCrypto
+import CoreImage
+import Foundation
+import MetalKit
+import Swift
+import UIKit
+import Vision
+import _Concurrency
+extension InstaPDFSDK.InstaPDF {
+  @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class ScanView : UIKit.UIView, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate, MetalKit.MTKViewDelegate, AVFoundation.AVCapturePhotoCaptureDelegate {
+    public struct UIConfiguration {
+      public let showTopActionBar: Swift.Bool
+      public let showBottomActionBar: Swift.Bool
+      public let showCameraCaptureButton: Swift.Bool
+      public static var `default`: InstaPDFSDK.InstaPDF.ScanView.UIConfiguration {
+        get
+      }
+      public static var none: InstaPDFSDK.InstaPDF.ScanView.UIConfiguration {
+        get
+      }
+      public static var hideTopActionBar: InstaPDFSDK.InstaPDF.ScanView.UIConfiguration {
+        get
+      }
+      public static var hideCaptureButton: InstaPDFSDK.InstaPDF.ScanView.UIConfiguration {
+        get
+      }
+      public init(showTopActionBar: Swift.Bool, showBottomActionBar: Swift.Bool, showCameraCaptureButton: Swift.Bool)
+    }
+    public struct QRCode {
+      public enum Kind {
+        case url
+        case importable
+        case text
+        public static func == (a: InstaPDFSDK.InstaPDF.ScanView.QRCode.Kind, b: InstaPDFSDK.InstaPDF.ScanView.QRCode.Kind) -> Swift.Bool
+        public func hash(into hasher: inout Swift.Hasher)
+        public var hashValue: Swift.Int {
+          get
+        }
+      }
+      public let kind: InstaPDFSDK.InstaPDF.ScanView.QRCode.Kind
+      public let content: Swift.String
+    }
+    public enum Mode {
+      case scan
+      case qrReader
+      public static func == (a: InstaPDFSDK.InstaPDF.ScanView.Mode, b: InstaPDFSDK.InstaPDF.ScanView.Mode) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public enum State {
+      case paused
+      case capturing
+      case softDisable
+      public static func == (a: InstaPDFSDK.InstaPDF.ScanView.State, b: InstaPDFSDK.InstaPDF.ScanView.State) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public enum Filter : Swift.Int, Swift.CaseIterable, Swift.Codable {
+      case magicColor
+      case magicBW
+      case textOnly
+      case grayscale
+      case colorBoost
+      case none
+      public var description: Swift.String {
+        get
+      }
+      public var ciFilter: CoreImage.CIFilter? {
+        get
+      }
+      public init?(rawValue: Swift.Int)
+      public typealias AllCases = [InstaPDFSDK.InstaPDF.ScanView.Filter]
+      public typealias RawValue = Swift.Int
+      public static var allCases: [InstaPDFSDK.InstaPDF.ScanView.Filter] {
+        get
+      }
+      public var rawValue: Swift.Int {
+        get
+      }
+    }
+    @_Concurrency.MainActor(unsafe) public static var highlightColor: UIKit.UIColor
+    @_Concurrency.MainActor(unsafe) public static var barColor: UIKit.UIColor
+    @_Concurrency.MainActor(unsafe) public static var cameraFont: UIKit.UIFont
+    @_Concurrency.MainActor(unsafe) public var currentMode: InstaPDFSDK.InstaPDF.ScanView.Mode
+    @_Concurrency.MainActor(unsafe) public var currentFilter: InstaPDFSDK.InstaPDF.ScanView.Filter {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var enableFlash: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var showCancelAddPage: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var onCaptureStateChange: ((InstaPDFSDK.InstaPDF.ScanView.State) -> ())?
+    @_Concurrency.MainActor(unsafe) public var willCapture: (() -> ())?
+    @_Concurrency.MainActor(unsafe) public var didCapture: ((InstaPDFSDK.InstaPDF.Scan) -> ())?
+    @_Concurrency.MainActor(unsafe) public var onPhotosButtonTap: (() -> ())?
+    @_Concurrency.MainActor(unsafe) public var onDraftsButtonTap: (() -> ())?
+    @_Concurrency.MainActor(unsafe) public var onCancelAddPageTap: (() -> ())?
+    @_Concurrency.MainActor(unsafe) public var setupComplete: Swift.Bool
+    @_Concurrency.MainActor(unsafe) public var showFilters: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var enableAutocrop: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var preventAutomaticAutocropNotification: Swift.Bool
+    @_Concurrency.MainActor(unsafe) public var qrViewVisible: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var qrActionButton: UIKit.UIButton {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var qrDetectionHandler: ((InstaPDFSDK.InstaPDF.ScanView.QRCode) -> ())?
+    @_Concurrency.MainActor(unsafe) public var qrActionHandler: ((InstaPDFSDK.InstaPDF.ScanView.QRCode) -> ())?
+    @_Concurrency.MainActor(unsafe) public var enableQRDetection: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var enableCapture: Swift.Bool {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var softDisable: Swift.Bool {
+      get
+      set
+    }
+    @objc deinit
+    @_Concurrency.MainActor(unsafe) public var cancelAddPageButton: UIKit.UIButton {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var captureButton: UIKit.UIButton {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var flashButton: UIKit.UIButton {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public var cameraUnavailableView: UIKit.UIVisualEffectView {
+      get
+      set
+    }
+    @_Concurrency.MainActor(unsafe) public init(uiConfiguration: InstaPDFSDK.InstaPDF.ScanView.UIConfiguration = .default)
+    @_Concurrency.MainActor(unsafe) public func setupDevice()
+    @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+    @_Concurrency.MainActor(unsafe) public func updateVideoOrientation()
+    @_Concurrency.MainActor(unsafe) @objc public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+    @_Concurrency.MainActor(unsafe) public func captureScan()
+    @_Concurrency.MainActor(unsafe) @objc public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didCapturePhotoFor resolvedSettings: AVFoundation.AVCaptureResolvedPhotoSettings)
+    @_Concurrency.MainActor(unsafe) @objc public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVFoundation.AVCapturePhoto, error: Swift.Error?)
+    @_Concurrency.MainActor(unsafe) @objc public func mtkView(_ view: MetalKit.MTKView, drawableSizeWillChange size: CoreGraphics.CGSize)
+    @_Concurrency.MainActor(unsafe) public func filter(_ input: CoreImage.CIImage, highAccuracy: Swift.Bool = false) -> CoreImage.CIImage?
+    @_Concurrency.MainActor(unsafe) @objc public func draw(in view: MetalKit.MTKView)
+  }
+  public struct Scan : Swift.Codable, Swift.Hashable {
+    public let imageFilePath: Swift.String
+    public let originalImageFilePath: Swift.String
+    public let originalImageSize: CoreGraphics.CGSize
+    public let filter: InstaPDFSDK.InstaPDF.ScanView.Filter
+    public let rectangleFeature: InstaPDFSDK.InstaPDF.RectangleFeature?
+    public static func == (lhs: InstaPDFSDK.InstaPDF.Scan, rhs: InstaPDFSDK.InstaPDF.Scan) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public func delete()
+    public func encode(to encoder: Swift.Encoder) throws
+    public var hashValue: Swift.Int {
+      get
+    }
+    public init(from decoder: Swift.Decoder) throws
+  }
+  @_hasMissingDesignatedInitializers public class ConfidenceTracker {
+    public enum Action {
+      case zero
+      case increase
+      case decrease
+      public static func == (a: InstaPDFSDK.InstaPDF.ConfidenceTracker.Action, b: InstaPDFSDK.InstaPDF.ConfidenceTracker.Action) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public var previousAutocropFeature: InstaPDFSDK.InstaPDF.RectangleFeature?
+    public var currentAutocropFeature: InstaPDFSDK.InstaPDF.RectangleFeature?
+    public var confidence: CoreGraphics.CGFloat {
+      get
+      set
+    }
+    public var onChange: (() -> ())?
+    public var onHighConfidence: (() -> ())?
+    @objc deinit
+  }
+  public class RectangleFeature : Swift.Codable {
+    final public let imageSize: CoreGraphics.CGSize
+    final public let topLeft: CoreGraphics.CGPoint
+    final public let topRight: CoreGraphics.CGPoint
+    final public let bottomLeft: CoreGraphics.CGPoint
+    final public let bottomRight: CoreGraphics.CGPoint
+    public init(_ rectangle: Vision.VNRectangleObservation, image: CoreImage.CIImage)
+    public init(topLeft: CoreGraphics.CGPoint, topRight: CoreGraphics.CGPoint, bottomRight: CoreGraphics.CGPoint, bottomLeft: CoreGraphics.CGPoint, inset: CoreGraphics.CGFloat)
+    public func inset(by value: CoreGraphics.CGFloat) -> InstaPDFSDK.InstaPDF.RectangleFeature
+    public func inRange(of rectangelFeature: InstaPDFSDK.InstaPDF.RectangleFeature?, range: CoreGraphics.CGFloat) -> Swift.Bool
+    @objc deinit
+    public func encode(to encoder: Swift.Encoder) throws
+    required public init(from decoder: Swift.Decoder) throws
+  }
+  @_hasMissingDesignatedInitializers public class FrameworkBundle {
+    @objc deinit
+  }
+  @objc @_inheritsConvenienceInitializers public class MagicFilter : CoreImage.CIFilter {
+    @objc dynamic public var inputImage: CoreImage.CIImage?
+    public var highAccuracy: Swift.Bool
+    public var noSaturation: Swift.Bool
+    @objc override dynamic public var outputImage: CoreImage.CIImage? {
+      @objc get
+    }
+    @objc override dynamic public init()
+    @objc required dynamic public init?(coder: Foundation.NSCoder)
+    @objc deinit
+  }
+  @objc @_inheritsConvenienceInitializers public class AdaptiveThresholdFilter : CoreImage.CIFilter {
+    @objc dynamic public var inputImage: CoreImage.CIImage?
+    public var highAccuracy: Swift.Bool
+    @objc override dynamic public var outputImage: CoreImage.CIImage? {
+      @objc get
+    }
+    @objc override dynamic public init()
+    @objc required dynamic public init?(coder: Foundation.NSCoder)
+    @objc deinit
+  }
+}
+extension InstaPDFSDK.InstaPDF {
+  @_hasMissingDesignatedInitializers public class License {
+    public enum Status : Swift.Int, Swift.Codable {
+      case ok
+      case okExpired
+      case invalid
+      public init?(rawValue: Swift.Int)
+      public typealias RawValue = Swift.Int
+      public var rawValue: Swift.Int {
+        get
+      }
+    }
+    public var status: InstaPDFSDK.InstaPDF.License.Status {
+      get
+    }
+    public var data: InstaPDFSDK.InstaPDF.License.LicenseData? {
+      get
+    }
+    public static var license: InstaPDFSDK.InstaPDF.License? {
+      get
+    }
+    public static func set(for appBundleID: Swift.String, licenseKey: Swift.String)
+    public static func demo()
+    public struct LicenseData : Swift.Codable {
+      public func encode(to encoder: Swift.Encoder) throws
+      public init(from decoder: Swift.Decoder) throws
+    }
+    @objc deinit
+  }
+}
+extension InstaPDFSDK.InstaPDF {
+  @_hasMissingDesignatedInitializers public class DocumentCreator {
+    public enum PaperFormat {
+      case a4
+      case usLetter
+      case usLegal
+      public static func == (a: InstaPDFSDK.InstaPDF.DocumentCreator.PaperFormat, b: InstaPDFSDK.InstaPDF.DocumentCreator.PaperFormat) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public enum Quality {
+      case high
+      case medium
+      case low
+      public static func == (a: InstaPDFSDK.InstaPDF.DocumentCreator.Quality, b: InstaPDFSDK.InstaPDF.DocumentCreator.Quality) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public struct Settings {
+      public static var `default`: InstaPDFSDK.InstaPDF.DocumentCreator.Settings {
+        get
+      }
+    }
+    public static func generatePDF(from scans: [InstaPDFSDK.InstaPDF.Scan], settings: InstaPDFSDK.InstaPDF.DocumentCreator.Settings, completionHandler: (_ documentFilePathURL: Foundation.URL) -> ())
+    @objc deinit
+  }
+}
+@_hasMissingDesignatedInitializers public class InstaPDF {
+  @objc deinit
+}
+extension InstaPDFSDK.InstaPDF.ScanView.QRCode.Kind : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.ScanView.QRCode.Kind : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.ScanView.Mode : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.ScanView.Mode : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.ScanView.State : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.ScanView.State : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.ScanView.Filter : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.ScanView.Filter : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.ScanView.Filter : Swift.RawRepresentable {}
+extension InstaPDFSDK.InstaPDF.ConfidenceTracker.Action : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.ConfidenceTracker.Action : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.License.Status : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.License.Status : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.License.Status : Swift.RawRepresentable {}
+extension InstaPDFSDK.InstaPDF.DocumentCreator.PaperFormat : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.DocumentCreator.PaperFormat : Swift.Hashable {}
+extension InstaPDFSDK.InstaPDF.DocumentCreator.Quality : Swift.Equatable {}
+extension InstaPDFSDK.InstaPDF.DocumentCreator.Quality : Swift.Hashable {}
